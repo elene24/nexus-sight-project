@@ -31,15 +31,18 @@ export function Footer() {
           <div className="md:col-span-5">
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              An intelligence consultancy turning open sources, signals, and human expertise into
-              decisions our partners can act on.
+              OSINT training and consulting from Georgia — building digital resilience,
+              advancing OSINT practice, and countering disinformation.
+            </p>
+            <p className="mt-4 font-mono text-[11px] uppercase tracking-widest text-mute">
+              Visio in tenebris
             </p>
             <div className="mt-8 flex items-center gap-2">
               {[
-                { Icon: Linkedin, label: "LinkedIn", href: "#" },
+                { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/osintus" },
                 { Icon: Twitter, label: "Twitter", href: "#" },
                 { Icon: Github, label: "GitHub", href: "#" },
-                { Icon: Mail, label: "Email", href: "mailto:hello@osintus.com" },
+                { Icon: Mail, label: "Email", href: "mailto:contact@osintus.com" },
               ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
@@ -98,7 +101,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
           <p className="font-mono tracking-wider">
-            © {new Date().getFullYear()} OSINTUS — All rights reserved.
+            © {new Date().getFullYear()} OSINTUS LLC — Company number: 405797561 (Georgia)
           </p>
           <div className="flex gap-6">
             <Link to="/" hash="privacy" className="hover:text-foreground">Privacy Policy</Link>

@@ -73,7 +73,7 @@ export function Hero() {
           className="flex items-center gap-3"
         >
           <span className="h-px w-10 bg-border-strong" />
-          <p className="eyebrow">Intelligence · Investigations · Security</p>
+          <p className="eyebrow">OSINT Training · Consulting · Visio in tenebris</p>
         </motion.div>
 
         <motion.h1
@@ -82,8 +82,8 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 max-w-5xl font-display text-[2.4rem] font-medium leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[5rem]"
         >
-          Transforming Open Source Intelligence into{" "}
-          <span className="text-mute">actionable decisions.</span>
+          Open-Source Intelligence professionals{" "}
+          <span className="text-mute">from Georgia.</span>
         </motion.h1>
 
         <motion.p
@@ -92,9 +92,9 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
         >
-          OSINTUS is an intelligence consultancy combining open source research,
-          investigative tradecraft, and cyber expertise to inform decisions that
-          can&rsquo;t afford to be wrong.
+          OSINTUS delivers OSINT training and consulting for diplomatic missions,
+          institutions, media, academia, and civil society — building digital
+          resilience, advancing OSINT practice, and countering disinformation.
         </motion.p>
 
         <motion.div
@@ -127,10 +127,10 @@ export function Hero() {
           className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-4"
         >
           {[
-            ["12+", "Years in field"],
-            ["40+", "Jurisdictions"],
-            ["350+", "Investigations"],
-            ["98%", "Client retention"],
+            ["20+", "Years of expertise"],
+            ["NATO & CEPOL", "Certified accreditations"],
+            ["10+", "Embassies & partners"],
+            ["EaP 2026", "Civic Tech Award"],
           ].map(([k, v]) => (
             <div key={v} className="bg-background/80 px-5 py-6 backdrop-blur">
               <p className="font-display text-2xl font-medium text-foreground md:text-3xl">{k}</p>

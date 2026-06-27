@@ -31,29 +31,33 @@ function HomePage() {
         <PatternBg opacity={0.04} />
         <div className="container-x grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="eyebrow">Mission</p>
+            <p className="eyebrow">Working Together</p>
             <h2 className="mt-5 font-display text-3xl font-medium leading-[1.05] text-foreground md:text-5xl">
-              We turn open signals into decisions.
+              End-to-end intelligence, delivered with care.
             </h2>
           </div>
           <div className="relative md:col-span-7 md:pl-10">
             <span aria-hidden className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-mute/60 via-mute/20 to-transparent md:block" />
             <Reveal>
               <p className="text-lg leading-relaxed text-foreground/90">
-                OSINTUS exists to give leaders an information edge in a world where
-                signal and noise are increasingly indistinguishable.
+                We provide an end-to-end client experience — seamless communication,
+                tailored research, skilled analysis, practical training, and
+                actionable intelligence.
               </p>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                We combine open source intelligence, investigative tradecraft, and
-                cyber expertise to produce findings that hold up to scrutiny — in
-                boardrooms, courtrooms, and operations centres. Our work is
-                discreet, technical, and always tied to a decision.
+                Our team is composed of certified professionals accredited by
+                organisations including NATO and the European Union Agency for Law
+                Enforcement Training (CEPOL), with up to 20 years of hands-on
+                experience in security and intelligence. We currently operate
+                locally in Georgia and are expanding onto the international stage —
+                partnering with embassies, NGOs, media, universities, and schools
+                to promote digital awareness and combat disinformation.
               </p>
               <div className="mt-10 grid gap-6 sm:grid-cols-3">
                 {[
-                  ["Precision", "Every assertion sourced and verified."],
-                  ["Discretion", "Operational confidentiality by default."],
-                  ["Independence", "No vendor ties. No conflicts."],
+                  ["Why Choose Us", "Senior practitioners, accredited by NATO and CEPOL."],
+                  ["Trusted Partners", "Embassies, NGOs, universities, and independent media."],
+                  ["Visio in tenebris", "Clarity where the information environment is hardest."],
                 ].map(([k, v]) => (
                   <div key={k} className="border-t border-border pt-4">
                     <p className="font-display text-sm tracking-wider text-foreground">{k}</p>

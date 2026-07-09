@@ -62,11 +62,11 @@ export const INSIGHTS: Insight[] = [
 ];
 
 export const TEAM = [
-  { name: "Tornike Dzamunashvili", role: "Founder & Executive Director", bio: "OSINT specialist and trainer with expertise in intelligence analysis, crime analysis, and security risk assessment. Director of the Education Department at OSINT for Ukraine (Netherlands), leading an international remote team designing and delivering OSINT programmes. Engaged with the Council of Europe Schools of Political Studies (France) and the Tbilisi School of Political Studies. Bachelor's and Master's in Law and International Law; National Security and Public Policy programme at the Rondeli Foundation.", photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=600&q=70" },
-  { name: "Business Development Advisor", role: "Advisory Board", bio: "Senior advisor supporting OSINTUS's growth across local and international markets.", photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=70" },
-  { name: "Legal & Compliance Advisor", role: "Advisory Board", bio: "Senior advisor on legal, regulatory, and compliance matters across jurisdictions.", photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=70" },
-  { name: "Brand & Design Advisor", role: "Advisory Board", bio: "Senior advisor on brand identity, design systems, and creative direction.", photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=70" },
-  { name: "Finance Advisor", role: "Advisory Board", bio: "Senior advisor on financial planning, controls, and sustainability.", photo: "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=600&q=70" },
+  { name: "Tornike Dzamunashvili", role: "Founder & Executive Director", bio: "Tornike Dzamunashvili is an open-source intelligence (OSINT) specialist and trainer with expertise in intelligence analysis, crime analysis, and security risk assessment. He serves as Director of the Education Department at OSINT for Ukraine (Netherlands), where he leads an international remote team in designing and delivering OSINT training programmes and producing educational content focused on building digital resilience, promoting OSINT practices, and countering disinformation. He is actively engaged with the Association of Schools of Political Studies of the Council of Europe (France) and the Tbilisi School of Political Studies (Georgia), contributing to initiatives that promote democratic culture, civic engagement, and the empowerment of emerging leaders. Locally, he founded OSINTUS (Georgia), a company advancing open-source intelligence education, training, and consulting. Tornike holds Bachelor's and Master's degrees in Law and International Law, as well as a programme in National Security and Public Policy from the Georgian Foundation for Strategic and International Studies (Rondeli Foundation).", photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=600&q=70" },
+  { name: "Business Development Advisor", role: "Advisory Board", bio: "…", photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=70" },
+  { name: "Legal & Compliance Advisor", role: "Advisory Board", bio: "…", photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=70" },
+  { name: "Brand & Design Advisor", role: "Advisory Board", bio: "…", photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=70" },
+  { name: "Finance Advisor", role: "Advisory Board", bio: "…", photo: "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=600&q=70" },
 ];
 
 export const PARTNERS = [
@@ -74,14 +74,7 @@ export const PARTNERS = [
   "Society22",
   "Halmstad University",
   "Embassy of the Netherlands in Georgia",
-  "Royal Norwegian Embassy in Georgia",
-  "NATO Liaison Office in Georgia",
-  "OSINT for Ukraine",
-  "Tbilisi School of Political Studies",
-  "Radio Marneuli",
-  "The Hague Humanity Hub",
-  "Eastern Partnership Civil Society Facility",
-  "Swedish Institute (SAYP)",
+  "Embassy of Norway in Georgia",
 ];
 
 export const OPENINGS = [

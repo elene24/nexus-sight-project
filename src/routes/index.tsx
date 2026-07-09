@@ -40,30 +40,33 @@ function HomePage() {
             <span aria-hidden className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-mute/60 via-mute/20 to-transparent md:block" />
             <Reveal>
               <p className="text-lg leading-relaxed text-foreground/90">
-                We provide an end-to-end client experience — seamless communication,
-                tailored research, skilled analysis, practical training, and
-                actionable intelligence.
+                We provide an end-to-end client experience, offering seamless
+                communication, tailored research, skilled analysis, practical
+                training, and actionable intelligence.
               </p>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Our team is composed of certified professionals accredited by
-                organisations including NATO and the European Union Agency for Law
-                Enforcement Training (CEPOL), with up to 20 years of hands-on
-                experience in security and intelligence. We currently operate
-                locally in Georgia and are expanding onto the international stage —
-                partnering with embassies, NGOs, media, universities, and schools
-                to promote digital awareness and combat disinformation.
-              </p>
-              <div className="mt-10 grid gap-6 sm:grid-cols-3">
-                {[
-                  ["Why Choose Us", "Senior practitioners, accredited by NATO and CEPOL."],
-                  ["Trusted Partners", "Embassies, NGOs, universities, and independent media."],
-                  ["Visio in tenebris", "Clarity where the information environment is hardest."],
-                ].map(([k, v]) => (
-                  <div key={k} className="border-t border-border pt-4">
-                    <p className="font-display text-sm tracking-wider text-foreground">{k}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v}</p>
-                  </div>
-                ))}
+              <div className="mt-10 grid gap-6 sm:grid-cols-2">
+                <div className="border-t border-border pt-4">
+                  <p className="font-display text-sm tracking-wider text-foreground">Why Choose Us?</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Our team comprises certified professionals accredited by
+                    esteemed organisations, including NATO and the European Union
+                    Agency for Law Enforcement Training (CEPOL). With up to 20
+                    years of hands-on experience in security and intelligence,
+                    our members bring unparalleled expertise. We combine this
+                    deep expertise with a commitment to delivering impactful
+                    training and solutions.
+                  </p>
+                </div>
+                <div className="border-t border-border pt-4">
+                  <p className="font-display text-sm tracking-wider text-foreground">Trusted by Professionals</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    We currently operate locally in Georgia and are beginning to
+                    expand onto the international stage. We partner with
+                    embassies, transparent and well-known organisations and NGOs,
+                    as well as with media, universities, and schools, to promote
+                    digital awareness and combat disinformation.
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>

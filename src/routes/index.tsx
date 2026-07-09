@@ -40,30 +40,33 @@ function HomePage() {
             <span aria-hidden className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-mute/60 via-mute/20 to-transparent md:block" />
             <Reveal>
               <p className="text-lg leading-relaxed text-foreground/90">
-                We provide an end-to-end client experience — seamless communication,
-                tailored research, skilled analysis, practical training, and
-                actionable intelligence.
+                We provide an end-to-end client experience, offering seamless
+                communication, tailored research, skilled analysis, practical
+                training, and actionable intelligence.
               </p>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Our team is composed of certified professionals accredited by
-                organisations including NATO and the European Union Agency for Law
-                Enforcement Training (CEPOL), with up to 20 years of hands-on
-                experience in security and intelligence. We currently operate
-                locally in Georgia and are expanding onto the international stage —
-                partnering with embassies, NGOs, media, universities, and schools
-                to promote digital awareness and combat disinformation.
-              </p>
-              <div className="mt-10 grid gap-6 sm:grid-cols-3">
-                {[
-                  ["Why Choose Us", "Senior practitioners, accredited by NATO and CEPOL."],
-                  ["Trusted Partners", "Embassies, NGOs, universities, and independent media."],
-                  ["Visio in tenebris", "Clarity where the information environment is hardest."],
-                ].map(([k, v]) => (
-                  <div key={k} className="border-t border-border pt-4">
-                    <p className="font-display text-sm tracking-wider text-foreground">{k}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v}</p>
-                  </div>
-                ))}
+              <div className="mt-10 grid gap-6 sm:grid-cols-2">
+                <div className="border-t border-border pt-4">
+                  <p className="font-display text-sm tracking-wider text-foreground">Why Choose Us?</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Our team comprises certified professionals accredited by
+                    esteemed organisations, including NATO and the European Union
+                    Agency for Law Enforcement Training (CEPOL). With up to 20
+                    years of hands-on experience in security and intelligence,
+                    our members bring unparalleled expertise. We combine this
+                    deep expertise with a commitment to delivering impactful
+                    training and solutions.
+                  </p>
+                </div>
+                <div className="border-t border-border pt-4">
+                  <p className="font-display text-sm tracking-wider text-foreground">Trusted by Professionals</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    We currently operate locally in Georgia and are beginning to
+                    expand onto the international stage. We partner with
+                    embassies, transparent and well-known organisations and NGOs,
+                    as well as with media, universities, and schools, to promote
+                    digital awareness and combat disinformation.
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -143,17 +146,14 @@ function HomePage() {
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {INSIGHTS.slice(0, 3).map((p, i) => (
               <Reveal key={p.slug} delay={i * 0.06}>
-                <Link to="/insights" className="group block h-full rounded-sm border border-border bg-background p-7 transition-all hover:border-border-strong hover:bg-surface/70">
-                  <div className="flex flex-wrap gap-2">
-                    {p.tags.map((t) => (
-                      <span key={t} className="rounded-sm border border-border px-2 py-0.5 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">{t}</span>
-                    ))}
+                <Link to="/insights" className="group flex h-full flex-col justify-between rounded-sm border border-border bg-background p-7 transition-all hover:border-border-strong hover:bg-surface/70">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-mute">Medium · OSINTUS</p>
+                    <h3 className="mt-5 font-display text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-paper">{p.title}</h3>
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-paper">{p.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.excerpt}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-border pt-4 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
-                    <span>{p.author}</span>
-                    <span>{p.readTime}</span>
+                  <div className="mt-8 flex items-center justify-between border-t border-border pt-4 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+                    <span>Read</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
                   </div>
                 </Link>
               </Reveal>

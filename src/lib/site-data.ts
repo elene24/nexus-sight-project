@@ -43,22 +43,19 @@ export const ACTIVITIES: Activity[] = [
 export type Insight = {
   slug: string;
   title: string;
-  excerpt: string;
-  author: string;
-  date: string;
-  readTime: string;
-  tags: string[];
+  url?: string;
 };
 
+// OSINTUS on Medium — links to be added by the team.
 export const INSIGHTS: Insight[] = [
-  { slug: "intro-to-osint", title: "Introduction to Open-Source Intelligence (OSINT)", excerpt: "Foundations of OSINT: what it is, what it is not, and how it sits within the wider intelligence discipline.", author: "OSINTUS", date: "Medium", readTime: "8 min", tags: ["OSINT", "Foundations"] },
-  { slug: "intelligence-cycle", title: "Introduction to the Intelligence Cycle (IC)", excerpt: "Direction, collection, processing, analysis, dissemination — a working model for structured intelligence production.", author: "OSINTUS", date: "Medium", readTime: "7 min", tags: ["Tradecraft"] },
-  { slug: "psychology-of-analysis", title: "Psychology of Intelligence Analysis and Structured Analytical Techniques (SAT)", excerpt: "Cognitive bias, mindset traps, and the structured techniques analysts use to discipline judgement.", author: "OSINTUS", date: "Medium", readTime: "10 min", tags: ["Analysis", "SAT"] },
-  { slug: "intro-to-internet", title: "Introduction to the Internet", excerpt: "What every OSINT practitioner should know about how the internet is built before they collect from it.", author: "OSINTUS", date: "Medium", readTime: "6 min", tags: ["Foundations"] },
-  { slug: "setting-up-workspace", title: "Setting up your OSINT Workspace", excerpt: "A practical setup for a secure, repeatable, and compartmentalised research environment.", author: "OSINTUS", date: "Medium", readTime: "9 min", tags: ["OPSEC", "Workspace"] },
-  { slug: "search-engines", title: "Search Engines", excerpt: "Using general and specialised search engines effectively — operators, pivots, and limits.", author: "OSINTUS", date: "Medium", readTime: "8 min", tags: ["Collection"] },
-  { slug: "investigating-target", title: "Investigating the Target Online", excerpt: "A practitioner's walkthrough for investigating a subject across the open web.", author: "OSINTUS", date: "Medium", readTime: "11 min", tags: ["Investigations"] },
-  { slug: "resource-list", title: "OSINT Resource List", excerpt: "A curated, working list of tools and resources used across our practice.", author: "OSINTUS", date: "Medium", readTime: "5 min", tags: ["Resources"] },
+  { slug: "investigating-target", title: "Investigating the Target Online" },
+  { slug: "search-engines", title: "Search Engines" },
+  { slug: "setting-up-workspace", title: "Setting up your OSINT Workspace" },
+  { slug: "intro-to-internet", title: "Introduction to the Internet" },
+  { slug: "psychology-of-analysis", title: "Psychology of Intelligence Analysis and Structured Analytical Techniques (SAT)" },
+  { slug: "intelligence-cycle", title: "Introduction to the Intelligence Cycle (IC)" },
+  { slug: "intro-to-osint", title: "Introduction to Open-Source Intelligence (OSINT)" },
+  { slug: "resource-list", title: "– Resource List" },
 ];
 
 export const TEAM = [

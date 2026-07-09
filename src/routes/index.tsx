@@ -143,17 +143,14 @@ function HomePage() {
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {INSIGHTS.slice(0, 3).map((p, i) => (
               <Reveal key={p.slug} delay={i * 0.06}>
-                <Link to="/insights" className="group block h-full rounded-sm border border-border bg-background p-7 transition-all hover:border-border-strong hover:bg-surface/70">
-                  <div className="flex flex-wrap gap-2">
-                    {p.tags.map((t) => (
-                      <span key={t} className="rounded-sm border border-border px-2 py-0.5 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">{t}</span>
-                    ))}
+                <Link to="/insights" className="group flex h-full flex-col justify-between rounded-sm border border-border bg-background p-7 transition-all hover:border-border-strong hover:bg-surface/70">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-mute">Medium · OSINTUS</p>
+                    <h3 className="mt-5 font-display text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-paper">{p.title}</h3>
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-paper">{p.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.excerpt}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-border pt-4 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
-                    <span>{p.author}</span>
-                    <span>{p.readTime}</span>
+                  <div className="mt-8 flex items-center justify-between border-t border-border pt-4 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+                    <span>Read</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
                   </div>
                 </Link>
               </Reveal>

@@ -5,13 +5,18 @@ import { Logo } from "./Logo";
 
 const NAV = [
   { to: "/mission", label: "Mission" },
-  { to: "/services", label: "Services" },
+  { to: "/team", label: "Team" },
   { to: "/activities", label: "Activities" },
   { to: "/insights", label: "Insights" },
-  { to: "/team", label: "Team" },
-  { to: "/partners", label: "Partners" },
+  { to: "/services", label: "Products" },
+  // Partners stays routable but is temporarily hidden from the menu.
+  { to: "/partners", label: "Partners", hidden: true },
+  { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+const VISIBLE_NAV = NAV.filter((i) => !("hidden" in i && i.hidden));
+
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);

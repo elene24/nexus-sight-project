@@ -1,7 +1,6 @@
-const LOGOS = [
-  "Mercator", "Halcyon", "Northwind", "Concordia", "Sentinel-9",
-  "Helios", "Atlas Group", "Veridian", "Kestrel", "Polaris",
-];
+import { TRUSTED_BY } from "@/lib/site-data";
+
+const LOGOS = TRUSTED_BY;
 
 export function TrustedBy() {
   return (
@@ -13,10 +12,10 @@ export function TrustedBy() {
             {[...LOGOS, ...LOGOS].map((name, i) => (
               <div
                 key={i}
-                className="group flex shrink-0 items-center gap-2 px-2 py-2 font-display text-[15px] tracking-[0.25em] text-muted-foreground/70 grayscale transition-all duration-500 hover:scale-105 hover:text-foreground hover:grayscale-0"
+                className="group flex shrink-0 items-center gap-2 px-2 py-2 font-display text-[13px] tracking-[0.18em] text-muted-foreground/70 grayscale transition-all duration-500 hover:scale-105 hover:text-foreground hover:grayscale-0"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-mute/60 transition-colors group-hover:bg-foreground" />
-                {name.toUpperCase()}
+                {name}
               </div>
             ))}
           </div>

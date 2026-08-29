@@ -3,8 +3,8 @@ import { Link } from "@tanstack/react-router";
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link to="/" aria-label="OSINTUS home" className={`group inline-flex items-center gap-2.5 focus-ring ${className}`}>
-      <span className="relative inline-flex h-7 w-7 items-center justify-center" aria-hidden>
-        <svg viewBox="0 0 32 32" className="h-7 w-7 text-foreground">
+      <span className="relative inline-flex h-8 w-8 items-center justify-center" aria-hidden>
+        <svg viewBox="0 0 32 32" className="h-8 w-8 text-foreground">
           <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.5" />
           <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.8" />
           <circle cx="16" cy="16" r="2.2" fill="currentColor" />
@@ -12,8 +12,13 @@ export function Logo({ className = "" }: { className?: string }) {
           <path d="M6.5 6.5l3 3M22.5 22.5l3 3M25.5 6.5l-3 3M9.5 22.5l-3 3" stroke="currentColor" strokeWidth="1.25" opacity="0.4" />
         </svg>
       </span>
-      <span className="font-display text-[15px] font-semibold tracking-[0.28em] text-foreground">
-        OSINTUS
+      <span className="flex flex-col leading-none">
+        <span className="font-display text-[15px] font-semibold tracking-[0.28em] text-foreground">
+          OSINTUS
+        </span>
+        <span className="mt-1 font-mono text-[9px] tracking-[0.18em] text-muted-foreground">
+          Visio in tenebris
+        </span>
       </span>
     </Link>
   );

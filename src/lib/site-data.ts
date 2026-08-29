@@ -27,14 +27,15 @@ export type Activity = {
   title: string;
   preview: string;
   cover: string;
+  pinned?: boolean;
 };
 
 export const ACTIVITIES: Activity[] = [
-  { slug: "nato-liaison-office", category: "Training", date: "Jun 12, 2026", title: "OSINTUS x NATO Liaison Office in Georgia", preview: "On 3 June 2026, OSINTUS delivered a one-day professional training session for the NATO Liaison Office (NLO) team in Georgia, tailored to their operational context and covering core OSINT methodologies.", cover: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=1200&q=70" },
+  { slug: "nato-liaison-office", category: "Training", date: "Jun 12, 2026", title: "OSINTUS x NATO Liaison Office in Georgia", pinned: true, preview: "On 3 June 2026, OSINTUS delivered a one-day professional training session for the NATO Liaison Office (NLO) team in Georgia, tailored to their operational context and covering core OSINT methodologies.", cover: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=1200&q=70" },
   { slug: "norwegian-embassy", category: "Diplomatic", date: "Jun 2, 2026", title: "OSINTUS x Royal Norwegian Embassy in Georgia", preview: "On 22 May 2026, OSINTUS delivered another OSINT for Diplomatic Monitoring session — this time for the Royal Norwegian Embassy in Tbilisi, with a representative of the Estonian Embassy also in attendance.", cover: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=70" },
   { slug: "netherlands-embassy", category: "Diplomatic", date: "May 20, 2026", title: "OSINTUS x Embassy of the Netherlands in Georgia", preview: "On 30 April 2026, OSINTUS delivered an OSINT for Diplomatic Monitoring training for the team of the Embassy of the Netherlands in Georgia.", cover: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=70" },
   { slug: "halmstad-university", category: "Academia", date: "May 15, 2026", title: "OSINTUS x Halmstad University", preview: "Tornike Dzamunashvili lectured on OSINT Fundamentals for Academic Research at Halmstad University, Sweden, as part of the SAYP Policy Integration and Transparency Practices module.", cover: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=70" },
-  { slug: "eap-civic-tech-hackathon", category: "Award", date: "Apr 27, 2026", title: "OSINTUS x 2026 EaP Civic Tech Hackathon", preview: "The T.R.A.C.E. team — represented by OSINTUS with international partners — won the 2026 EaP Civic Tech Award in Chișinău: an AI-powered platform tracking pro-Russian narratives across borders.", cover: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=70" },
+  { slug: "eap-civic-tech-hackathon", category: "Award", date: "Apr 27, 2026", title: "OSINTUS x 2026 EaP Civic Tech Hackathon", pinned: true, preview: "The T.R.A.C.E. team — represented by OSINTUS with international partners — won the 2026 EaP Civic Tech Award in Chișinău: an AI-powered platform tracking pro-Russian narratives across borders.", cover: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=70" },
   { slug: "nato-hq", category: "Visit", date: "Mar 14, 2026", title: "OSINTUS x NATO Headquarters", preview: "OSINTUS Founder Tornike Dzamunashvili visited NATO HQ in Brussels for exchanges on resilience, hybrid threats, disinformation, and partnerships in the South Caucasus.", cover: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200&q=70" },
   { slug: "radio-marneuli", category: "Training", date: "Dec 9, 2025", title: "OSINTUS x Radio Marneuli", preview: "A tailored OSINT session for journalists at Radio Marneuli — covering disinformation, decentralisation, and support for ethnic-minority communities in Georgia.", cover: "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=70" },
   { slug: "rebrand", category: "Announcement", date: "Sep 12, 2025", title: "We have rebranded: OSINT Time is now OSINTUS", preview: "Our transition from a project to an organisation — a stronger focus, broader energy, and ambitions reaching from local to international.", cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=70" },
@@ -78,4 +79,18 @@ export const OPENINGS = [
   { title: "OSINT Trainer (Contract)", location: "Tbilisi / Remote", type: "Contract" },
   { title: "Junior Research Analyst", location: "Tbilisi", type: "Full-time" },
   { title: "Partnerships & Outreach Lead", location: "Tbilisi", type: "Full-time" },
+];
+
+export const TRUSTED_BY = [
+  "NATO",
+  "Norwegian Embassy in Georgia",
+  "Embassy of the Netherlands in Georgia",
+  "Swedish Institute (Svenska institutet)",
+  "Halmstad University",
+  "European Union",
+  "Eastern Partnership Civil Society Facility",
+  "Erasmus+",
+  "Tbilisi School of Political Studies",
+  "School of Civic Education",
+  "Radio Marneuli",
 ];

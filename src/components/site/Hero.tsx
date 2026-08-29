@@ -20,10 +20,12 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
 
       {/* Decorative animated SVG network */}
-      <svg
+      <motion.svg
         aria-hidden
         viewBox="0 0 800 400"
-        className="pointer-events-none absolute inset-x-0 top-20 -z-10 mx-auto h-[520px] w-full max-w-6xl opacity-30"
+        initial="rest"
+        whileHover="hover"
+        className="group absolute inset-x-0 top-20 -z-10 mx-auto h-[520px] w-full max-w-6xl opacity-30 transition-opacity duration-500 hover:opacity-70"
       >
         <defs>
           <radialGradient id="node" cx="50%" cy="50%" r="50%">
@@ -44,6 +46,14 @@ export function Hero() {
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 0.7 }}
             transition={{ duration: 2.4, delay: 0.15 * i, ease: "easeOut" }}
+            variants={{
+              rest: { strokeWidth: 0.6, stroke: "#77979E" },
+              hover: {
+                strokeWidth: 1.4,
+                stroke: "#EBEFF2",
+                transition: { duration: 0.5, delay: 0.05 * i },
+              },
+            }}
           />
         ))}
         {[
@@ -55,15 +65,28 @@ export function Hero() {
               cx={cx} cy={cy} r="14" fill="url(#node)"
               initial={{ opacity: 0 }} animate={{ opacity: 0.6 }}
               transition={{ duration: 1.2, delay: 0.2 * i + 0.6 }}
+              variants={{
+                rest: { scale: 1, opacity: 0.6 },
+                hover: {
+                  scale: [1, 1.9, 1.35],
+                  opacity: [0.6, 1, 0.85],
+                  transition: { duration: 1.1, delay: 0.06 * i, ease: "easeInOut" },
+                },
+              }}
+              style={{ originX: `${cx}px`, originY: `${cy}px` }}
             />
             <motion.circle
               cx={cx} cy={cy} r="2" fill="#EBEFF2"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.2 * i + 0.6 }}
+              variants={{
+                rest: { r: 2 },
+                hover: { r: 3.4, transition: { duration: 0.45, delay: 0.06 * i } },
+              }}
             />
           </g>
         ))}
-      </svg>
+      </motion.svg>
 
       <div className="container-x relative">
         <motion.div
@@ -107,7 +130,7 @@ export function Hero() {
             to="/services"
             className="focus-ring group inline-flex items-center gap-2 rounded-sm border border-border-strong bg-paper px-5 py-3 text-sm font-medium text-navy transition-all hover:bg-foreground"
           >
-            Explore Services
+            Explore Products
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link

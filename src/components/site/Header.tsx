@@ -5,13 +5,18 @@ import { Logo } from "./Logo";
 
 const NAV = [
   { to: "/mission", label: "Mission" },
-  { to: "/services", label: "Services" },
+  { to: "/team", label: "Team" },
   { to: "/activities", label: "Activities" },
   { to: "/insights", label: "Insights" },
-  { to: "/team", label: "Team" },
-  { to: "/partners", label: "Partners" },
+  { to: "/services", label: "Products" },
+  // Partners stays routable but is temporarily hidden from the menu.
+  { to: "/partners", label: "Partners", hidden: true },
+  { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+const VISIBLE_NAV = NAV.filter((i) => !("hidden" in i && i.hidden));
+
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +42,7 @@ export function Header() {
         <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {NAV.map((item) => (
+          {VISIBLE_NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -79,7 +84,7 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <nav className="container-x grid gap-1 py-4" aria-label="Mobile">
-            {NAV.map((item) => (
+            {VISIBLE_NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}

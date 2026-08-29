@@ -63,9 +63,7 @@ function ContactPage() {
         <div className="container-x grid gap-12 md:grid-cols-12">
           <aside className="space-y-px overflow-hidden rounded-sm border border-border bg-border md:col-span-4 self-start">
             {[
-              { Icon: MapPin, label: "Office", value: "12 Rustaveli Ave, Tbilisi, Georgia" },
               { Icon: Mail, label: "Email", value: "hello@osintus.com", href: "mailto:hello@osintus.com" },
-              { Icon: Phone, label: "Phone", value: "+995 32 000 0000", href: "tel:+995320000000" },
             ].map(({ Icon, label, value, href }) => (
               <div key={label} className="bg-background p-6">
                 <div className="flex items-center gap-3">
@@ -81,12 +79,8 @@ function ContactPage() {
                 )}
               </div>
             ))}
-            <div className="bg-background p-6">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Hours</p>
-              <p className="mt-3 text-sm text-foreground">Mon–Fri, 09:00–18:00 GET</p>
-              <p className="mt-1 text-xs text-muted-foreground">Urgent matters by arrangement.</p>
-            </div>
           </aside>
+
 
           <div className="md:col-span-8">
             {submitted ? (

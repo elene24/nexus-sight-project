@@ -4,18 +4,17 @@ import { Logo } from "./Logo";
 
 const cols = [
   {
-    title: "Company",
+    title: "US",
     links: [
       { to: "/mission", label: "Mission" },
       { to: "/team", label: "Team" },
       { to: "/careers", label: "Careers" },
-      { to: "/partners", label: "Partners" },
     ],
   },
   {
     title: "Capabilities",
     links: [
-      { to: "/services", label: "Services" },
+      { to: "/services", label: "Products" },
       { to: "/activities", label: "Activities" },
       { to: "/insights", label: "Insights" },
       { to: "/contact", label: "Contact" },
@@ -28,14 +27,14 @@ export function Footer() {
     <footer className="relative mt-32 border-t border-border bg-surface/40">
       <div className="container-x py-16">
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-6">
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               OSINT training and consulting from Georgia — building digital resilience,
               advancing OSINT practice, and countering disinformation.
             </p>
             <p className="mt-4 font-mono text-[11px] uppercase tracking-widest text-mute">
-              Visio in tenebris
+              Proudly from Georgia 🇬🇪
             </p>
             <div className="mt-8 flex items-center gap-2">
               {[
@@ -57,7 +56,7 @@ export function Footer() {
           </div>
 
           {cols.map((col) => (
-            <div key={col.title} className="md:col-span-2">
+            <div key={col.title} className="md:col-span-3">
               <p className="eyebrow">{col.title}</p>
               <ul className="mt-5 space-y-3">
                 {col.links.map((l) => (
@@ -73,30 +72,6 @@ export function Footer() {
               </ul>
             </div>
           ))}
-
-          <div className="md:col-span-3">
-            <p className="eyebrow">Newsletter</p>
-            <p className="mt-5 text-sm text-muted-foreground">
-              Quarterly intelligence briefings. No noise.
-            </p>
-            <form
-              className="mt-4 flex items-center gap-2"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                required
-                placeholder="you@domain.com"
-                className="focus-ring h-10 w-full rounded-sm border border-border bg-surface px-3 text-sm placeholder:text-muted-foreground/70"
-              />
-              <button
-                type="submit"
-                className="focus-ring h-10 shrink-0 rounded-sm border border-border-strong bg-surface-2 px-3 text-xs font-mono uppercase tracking-widest text-foreground transition-colors hover:bg-surface-3"
-              >
-                Join
-              </button>
-            </form>
-          </div>
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">

@@ -42,7 +42,7 @@ export function Header() {
         <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {NAV.map((item) => (
+          {VISIBLE_NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -84,7 +84,7 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <nav className="container-x grid gap-1 py-4" aria-label="Mobile">
-            {NAV.map((item) => (
+            {VISIBLE_NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}

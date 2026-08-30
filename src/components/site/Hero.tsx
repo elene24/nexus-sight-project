@@ -1,9 +1,23 @@
 import { motion } from "motion/react";
+import { useState } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-network.jpg";
 
+const EDGES: [number, number, number, number][] = [
+  [100, 80, 260, 140], [260, 140, 420, 90], [420, 90, 580, 170],
+  [580, 170, 700, 110], [260, 140, 340, 260], [340, 260, 500, 300],
+  [500, 300, 640, 240], [100, 80, 180, 220], [180, 220, 340, 260],
+];
+
+const NODES: [number, number][] = [
+  [100, 80], [260, 140], [420, 90], [580, 170], [700, 110],
+  [340, 260], [500, 300], [640, 240], [180, 220],
+];
+
 export function Hero() {
+  const [active, setActive] = useState(false);
+
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32">
       {/* Background image */}
@@ -19,13 +33,13 @@ export function Hero() {
       {/* Grid overlay */}
       <div className="absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
 
-      {/* Decorative animated SVG network */}
-      <motion.svg
+      {/* Decorative animated SVG network — hover reacts on the lines/nodes themselves */}
+      <svg
         aria-hidden
         viewBox="0 0 800 400"
-        initial="rest"
-        whileHover="hover"
-        className="group absolute inset-x-0 top-20 -z-10 mx-auto h-[520px] w-full max-w-6xl opacity-30 transition-opacity duration-500 hover:opacity-70"
+        className={`pointer-events-none absolute inset-x-0 top-20 -z-10 mx-auto h-[520px] w-full max-w-6xl transition-opacity duration-500 ${
+          active ? "opacity-70" : "opacity-30"
+        }`}
       >
         <defs>
           <radialGradient id="node" cx="50%" cy="50%" r="50%">
@@ -33,60 +47,63 @@ export function Hero() {
             <stop offset="100%" stopColor="#77979E" stopOpacity="0" />
           </radialGradient>
         </defs>
-        {[
-          [100, 80, 260, 140], [260, 140, 420, 90], [420, 90, 580, 170],
-          [580, 170, 700, 110], [260, 140, 340, 260], [340, 260, 500, 300],
-          [500, 300, 640, 240], [100, 80, 180, 220], [180, 220, 340, 260],
-        ].map(([x1, y1, x2, y2], i) => (
-          <motion.line
-            key={i}
-            x1={x1} y1={y1} x2={x2} y2={y2}
-            stroke="#77979E"
-            strokeWidth="0.6"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.7 }}
-            transition={{ duration: 2.4, delay: 0.15 * i, ease: "easeOut" }}
-            variants={{
-              rest: { strokeWidth: 0.6, stroke: "#77979E" },
-              hover: {
-                strokeWidth: 1.4,
-                stroke: "#EBEFF2",
-                transition: { duration: 0.5, delay: 0.05 * i },
-              },
-            }}
-          />
-        ))}
-        {[
-          [100, 80], [260, 140], [420, 90], [580, 170], [700, 110],
-          [340, 260], [500, 300], [640, 240], [180, 220],
-        ].map(([cx, cy], i) => (
-          <g key={i}>
-            <motion.circle
-              cx={cx} cy={cy} r="14" fill="url(#node)"
-              initial={{ opacity: 0 }} animate={{ opacity: 0.6 }}
-              transition={{ duration: 1.2, delay: 0.2 * i + 0.6 }}
-              variants={{
-                rest: { scale: 1, opacity: 0.6 },
-                hover: {
-                  scale: [1, 1.9, 1.35],
-                  opacity: [0.6, 1, 0.85],
-                  transition: { duration: 1.1, delay: 0.06 * i, ease: "easeInOut" },
-                },
-              }}
-              style={{ originX: `${cx}px`, originY: `${cy}px` }}
-            />
-            <motion.circle
-              cx={cx} cy={cy} r="2" fill="#EBEFF2"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 * i + 0.6 }}
-              variants={{
-                rest: { r: 2 },
-                hover: { r: 3.4, transition: { duration: 0.45, delay: 0.06 * i } },
-              }}
-            />
-          </g>
-        ))}
-      </motion.svg>
+
+        <g
+          style={{ pointerEvents: "auto" }}
+          onPointerEnter={() => setActive(true)}
+          onPointerLeave={() => setActive(false)}
+        >
+          {EDGES.map(([x1, y1, x2, y2], i) => (
+            <g key={`e${i}`}>
+              {/* invisible hit area so thin lines are easy to hover */}
+              <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="transparent" strokeWidth="16" />
+              <motion.line
+                x1={x1} y1={y1} x2={x2} y2={y2}
+                stroke={active ? "#EBEFF2" : "#77979E"}
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{
+                  pathLength: 1,
+                  opacity: 0.7,
+                  strokeWidth: active ? 1.4 : 0.6,
+                }}
+                transition={{
+                  pathLength: { duration: 2.4, delay: 0.15 * i, ease: "easeOut" },
+                  opacity: { duration: 2.4, delay: 0.15 * i },
+                  strokeWidth: { duration: 0.4, delay: active ? 0.04 * i : 0 },
+                }}
+                style={{ pointerEvents: "none" }}
+              />
+            </g>
+          ))}
+
+          {NODES.map(([cx, cy], i) => (
+            <g key={`n${i}`}>
+              <circle cx={cx} cy={cy} r="18" fill="transparent" />
+              <motion.circle
+                cx={cx} cy={cy} r="14" fill="url(#node)"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: active ? 0.95 : 0.6, scale: active ? 1.45 : 1 }}
+                transition={{
+                  opacity: { duration: active ? 0.5 : 1.2, delay: active ? 0.04 * i : 0.2 * i + 0.6 },
+                  scale: { duration: 0.5, delay: active ? 0.04 * i : 0 },
+                }}
+                style={{ originX: `${cx}px`, originY: `${cy}px`, pointerEvents: "none" }}
+              />
+              <motion.circle
+                cx={cx} cy={cy} fill="#EBEFF2"
+                initial={{ opacity: 0, r: 2 }}
+                animate={{ opacity: 1, r: active ? 3.4 : 2 }}
+                transition={{
+                  opacity: { duration: 0.4, delay: active ? 0 : 0.2 * i + 0.6 },
+                  r: { duration: 0.4, delay: active ? 0.04 * i : 0 },
+                }}
+                style={{ pointerEvents: "none" }}
+              />
+            </g>
+          ))}
+        </g>
+      </svg>
+
 
       <div className="container-x relative">
         <motion.div

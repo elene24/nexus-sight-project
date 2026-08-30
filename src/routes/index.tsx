@@ -105,10 +105,11 @@ function HomePage() {
             <span aria-hidden className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-mute/60 via-mute/20 to-transparent md:block" />
             <Reveal>
               <p className="text-lg leading-relaxed text-foreground/90">
-                We provide OSINT research, analysis, training and advisory support,
-                delivered through a complete client experience: direct communication,
-                tailored scope, rigorous method and findings our partners can act on.
+                OSINT training and consulting from Georgia — advancing OSINT
+                practice, building digital resilience, and enabling
+                analysis-based decision-making.
               </p>
+
               <div className="mt-10 grid gap-6 sm:grid-cols-3">
                 <div className="border-t border-border pt-4">
                   <p className="font-display text-sm tracking-wider text-foreground">What We Deliver</p>

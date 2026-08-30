@@ -22,8 +22,8 @@ export const Route = createFileRoute("/services/$slug")({
   notFoundComponent: () => (
     <div className="min-h-dvh pt-40 text-center">
       <p className="eyebrow">Not found</p>
-      <h1 className="mt-4 font-display text-3xl">Service not found</h1>
-      <Link to="/services" className="mt-6 inline-block text-sm text-muted-foreground hover:text-foreground">← Back to services</Link>
+      <h1 className="mt-4 font-display text-3xl">Product not found</h1>
+      <Link to="/services" className="mt-6 inline-block text-sm text-muted-foreground hover:text-foreground">← Back to products</Link>
     </div>
   ),
   errorComponent: ({ error }) => <div className="pt-40 text-center text-muted-foreground">{error.message}</div>,
@@ -38,7 +38,7 @@ function ServiceDetail() {
   return (
     <>
       <PageHeader
-        eyebrow="Service"
+        eyebrow="Product"
         title={service.title}
         description={service.short}
       />
@@ -49,6 +49,16 @@ function ServiceDetail() {
               <Icon className="h-6 w-6 text-foreground" strokeWidth={1.4} />
             </span>
             <p className="mt-8 text-lg leading-relaxed text-foreground/90">{service.description}</p>
+            {service.modules && (
+              <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
+                {service.modules.map((m) => (
+                  <div key={m.title} className="h-full bg-background p-6">
+                    <p className="font-display text-sm font-medium tracking-wide text-foreground">{m.title}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
+                  </div>
+                ))}
+              </div>
+            )}
             <div className="mt-12 grid gap-3">
               {[
                 "Scoped engagement led by a senior practitioner",
@@ -77,7 +87,7 @@ function ServiceDetail() {
               ))}
             </div>
             <Link to="/services" className="mt-6 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="h-3.5 w-3.5" /> All services
+              <ArrowLeft className="h-3.5 w-3.5" /> All products
             </Link>
           </aside>
         </div>

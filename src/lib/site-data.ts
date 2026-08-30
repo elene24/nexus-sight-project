@@ -1,5 +1,5 @@
 import {
-  Search, ShieldCheck, FileSearch, Radar, GraduationCap, BriefcaseBusiness,
+  GraduationCap, BriefcaseBusiness, FileText,
   type LucideIcon,
 } from "lucide-react";
 
@@ -9,16 +9,45 @@ export type Service = {
   short: string;
   description: string;
   icon: LucideIcon;
+  modules?: { title: string; body: string }[];
 };
 
 export const SERVICES: Service[] = [
-  { slug: "osint-training", title: "OSINT Training", short: "Practitioner-led training programmes in Open-Source Intelligence.", description: "Tailored OSINT curricula for diplomats, journalists, NGOs, public institutions, academia, and security teams — from foundations to advanced tradecraft.", icon: GraduationCap },
-  { slug: "consulting", title: "Consulting", short: "Strategic advisory across OSINT, cyber hygiene, and information environment monitoring.", description: "We help organisations design and mature OSINT capabilities, strengthen operational security posture, and build resilience against disinformation.", icon: BriefcaseBusiness },
-  { slug: "open-source-intelligence", title: "Open-Source Intelligence", short: "Structured collection, verification, and analysis from open sources.", description: "Bespoke OSINT engagements mapping subjects, networks, and risk indicators across public records, social signals, and technical infrastructure.", icon: Search },
-  { slug: "diplomatic-monitoring", title: "OSINT for Diplomatic Monitoring", short: "Information environment monitoring for embassies and diplomatic missions.", description: "Our signature programme — delivered to NATO, the Royal Norwegian Embassy, the Embassy of the Netherlands, and other diplomatic teams in Georgia.", icon: Radar },
-  { slug: "investigations", title: "Investigations & Verification", short: "Verification of digital content, sources, and online subjects.", description: "Multi-method verification combining OSINT tradecraft, forensic analysis, and structured analytical techniques.", icon: FileSearch },
-  { slug: "cyber-hygiene", title: "Cyber Hygiene & OPSEC", short: "Practical digital safety for individuals, teams, and institutions.", description: "Hands-on training and audits covering operational security, account hygiene, device hardening, and safe online research practice.", icon: ShieldCheck },
+  {
+    slug: "training",
+    title: "Training",
+    short: "Practical, hands-on workshops delivered to institutions, teams, and professionals.",
+    description:
+      "Practical, hands-on workshops delivered to institutions, teams, and professionals. Each programme combines methodology with applied casework, so participants leave with techniques they can use in their daily work rather than theory alone. Sessions are adapted to the client's operating context and can be delivered as short sessions, full workshops, or extended training cycles.",
+    icon: GraduationCap,
+    modules: [
+      { title: "OSINT Fundamentals", body: "An entry point to open source work: core concepts, the intelligence cycle, search and verification techniques, and the legal and ethical boundaries of collection. Designed for teams building an OSINT capability from the ground up." },
+      { title: "Cyber Hygiene", body: "Protecting yourself and your organisation in the open information environment. Covers digital footprint reduction, operational security during research, account and device protection, and recognising social engineering attempts." },
+      { title: "OSINT for Law Enforcement", body: "Applied open source techniques for investigative and operational work, including subject research, geolocation, digital evidence handling, and documentation standards that hold up to scrutiny." },
+      { title: "OSINT for Diplomatic Monitoring", body: "Structured monitoring of the political and information environment for diplomatic missions and international organisations. Focused on tracking developments, mapping actors and narratives, and producing timely situational awareness." },
+      { title: "OSINT for Investigative Journalism", body: "Verification and research methods for newsrooms and independent journalists. Covers source assessment, image and video verification, corporate and public records research, and building a defensible evidence trail." },
+      { title: "OSINT for Countering Disinformation", body: "Identifying, analysing, and documenting manipulative information operations. Covers narrative and technique analysis, coordinated behaviour detection, and the analytical frameworks used to classify information threats." },
+      { title: "Crafting Analytical Reports", body: "Turning research into product. Structured analytical techniques, managing uncertainty and confidence levels, source referencing, and writing for decision-makers who need clarity rather than volume." },
+    ],
+  },
+  {
+    slug: "reports",
+    title: "Reports",
+    short: "Analytical reporting on geopolitics, national security, and the international security environment.",
+    description:
+      "Analytical reporting on geopolitics, national security, and the international security environment. Products range from situational updates to in-depth thematic assessments, built on open sources and structured analytical methods. Reporting can be produced on a standing basis or commissioned for a specific question, region, or issue.",
+    icon: FileText,
+  },
+  {
+    slug: "consulting",
+    title: "Consulting",
+    short: "Advisory work on where open source capability adds value and how to build it.",
+    description:
+      "Advisory work on where open source capability adds value and how to build it. This includes assessing existing information practices, identifying where OSINT strengthens due diligence, risk assessment, and monitoring functions, and designing the workflows, tools, and internal standards needed to embed it into routine operations.",
+    icon: BriefcaseBusiness,
+  },
 ];
+
 
 export type Activity = {
   slug: string;

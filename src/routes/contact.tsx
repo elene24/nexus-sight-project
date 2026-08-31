@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, MapPin, Phone, Check } from "lucide-react";
 import { z } from "zod";
+import { useServerFn } from "@tanstack/react-start";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/site/PageHeader";
+import { submitContact } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -133,8 +136,8 @@ function ContactPage() {
                 </div>
                 <div className="mt-8 flex items-center justify-between gap-4">
                   <p className="text-xs text-muted-foreground">All enquiries are treated as confidential.</p>
-                  <button type="submit" className="rounded-sm border border-border-strong bg-paper px-5 py-3 text-sm font-medium text-navy hover:bg-foreground">
-                    Send message
+                  <button type="submit" disabled={sending} className="rounded-sm border border-border-strong bg-paper px-5 py-3 text-sm font-medium text-navy hover:bg-foreground disabled:opacity-60">
+                    {sending ? "Sending…" : "Send message"}
                   </button>
                 </div>
               </form>

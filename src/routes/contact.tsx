@@ -30,12 +30,14 @@ function ContactPage() {
   const [form, setForm] = useState<FormState>({ name: "", email: "", company: "", subject: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const send = useServerFn(submitContact);
 
   const onChange = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((f) => ({ ...f, [k]: e.target.value }));
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = schema.safeParse(form);
     if (!res.success) {
@@ -45,11 +47,20 @@ function ContactPage() {
         next[key] = issue.message;
       }
       setErrors(next);
+      toast.error("Please check the highlighted fields.");
       return;
     }
     setErrors({});
-    // TODO: wire to backend
-    setSubmitted(true);
+    setSending(true);
+    try {
+      await send({ data: res.data });
+      toast.success("Message sent — we'll be in touch.");
+      setSubmitted(true);
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (

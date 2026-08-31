@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, MapPin, Phone, Check } from "lucide-react";
 import { z } from "zod";
+import { useServerFn } from "@tanstack/react-start";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/site/PageHeader";
+import { submitContact } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -30,12 +33,14 @@ function ContactPage() {
   const [form, setForm] = useState<FormState>({ name: "", email: "", company: "", subject: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const send = useServerFn(submitContact);
 
   const onChange = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((f) => ({ ...f, [k]: e.target.value }));
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = schema.safeParse(form);
     if (!res.success) {
@@ -45,11 +50,20 @@ function ContactPage() {
         next[key] = issue.message;
       }
       setErrors(next);
+      toast.error("Please check the highlighted fields.");
       return;
     }
     setErrors({});
-    // TODO: wire to backend
-    setSubmitted(true);
+    setSending(true);
+    try {
+      await send({ data: res.data });
+      toast.success("Message sent — we'll be in touch.");
+      setSubmitted(true);
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -122,8 +136,8 @@ function ContactPage() {
                 </div>
                 <div className="mt-8 flex items-center justify-between gap-4">
                   <p className="text-xs text-muted-foreground">All enquiries are treated as confidential.</p>
-                  <button type="submit" className="rounded-sm border border-border-strong bg-paper px-5 py-3 text-sm font-medium text-navy hover:bg-foreground">
-                    Send message
+                  <button type="submit" disabled={sending} className="rounded-sm border border-border-strong bg-paper px-5 py-3 text-sm font-medium text-navy hover:bg-foreground disabled:opacity-60">
+                    {sending ? "Sending…" : "Send message"}
                   </button>
                 </div>
               </form>

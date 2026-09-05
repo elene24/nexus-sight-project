@@ -17,8 +17,6 @@ export const Route = createFileRoute("/activities")({
 });
 
 function ActivitiesPage() {
-  // Masonry-style varying spans
-  const spans = ["md:row-span-2", "", "", "md:row-span-2"];
   const pinned = ACTIVITIES.filter((a) => a.pinned);
   const rest = ACTIVITIES.filter((a) => !a.pinned);
   return (

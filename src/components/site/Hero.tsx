@@ -52,7 +52,10 @@ export function Hero() {
           style={{ pointerEvents: "auto" }}
           onPointerEnter={() => setActive(true)}
           onPointerLeave={() => setActive(false)}
+          onPointerMove={() => setActive(true)}
         >
+          {/* full-area hover surface so anywhere over the graphic activates it */}
+          <rect x="0" y="0" width="800" height="400" fill="transparent" />
           {EDGES.map(([x1, y1, x2, y2], i) => (
             <g key={`e${i}`}>
               {/* invisible hit area so thin lines are easy to hover */}

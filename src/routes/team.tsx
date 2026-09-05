@@ -36,7 +36,7 @@ function TeamPage() {
                 transition={{ duration: 0.6, delay: (i % 3) * 0.06 }}
                 className="group relative bg-background"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img src={m.photo} alt={`Portrait of ${m.name}`} loading="lazy" className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 flex items-center justify-end gap-2 p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">

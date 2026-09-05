@@ -26,7 +26,7 @@ function TeamPage() {
       />
       <section className="py-24 md:py-28">
         <div className="container-x">
-          <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-5xl gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {TEAM.map((m, i) => (
               <motion.article
                 key={m.name}

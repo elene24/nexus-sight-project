@@ -72,9 +72,10 @@ function ActivitiesPage() {
                   <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">{a.date}</p>
                   <h3 className="mt-3 font-display text-lg font-medium leading-snug text-foreground">{a.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a.preview}</p>
-                  <a href="#" className="mt-6 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-foreground/80 hover:text-foreground">
+                  <Link to="/activities/$slug" params={{ slug: a.slug }} className="mt-6 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-foreground/80 hover:text-foreground">
                     Read more <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
+                  </Link>
+
                 </div>
               </motion.article>
             ))}

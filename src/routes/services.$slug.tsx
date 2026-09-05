@@ -22,8 +22,8 @@ export const Route = createFileRoute("/services/$slug")({
   notFoundComponent: () => (
     <div className="min-h-dvh pt-40 text-center">
       <p className="eyebrow">Not found</p>
-      <h1 className="mt-4 font-display text-3xl">Product not found</h1>
-      <Link to="/services" className="mt-6 inline-block text-sm text-muted-foreground hover:text-foreground">← Back to products</Link>
+      <h1 className="mt-4 font-display text-3xl">Service not found</h1>
+      <Link to="/services" className="mt-6 inline-block text-sm text-muted-foreground hover:text-foreground">← Back to services</Link>
     </div>
   ),
   errorComponent: ({ error }) => <div className="pt-40 text-center text-muted-foreground">{error.message}</div>,
@@ -38,7 +38,7 @@ function ServiceDetail() {
   return (
     <>
       <PageHeader
-        eyebrow="Product"
+        eyebrow="Service"
         title={service.title}
         description={service.short}
       />
@@ -87,7 +87,7 @@ function ServiceDetail() {
               ))}
             </div>
             <Link to="/services" className="mt-6 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="h-3.5 w-3.5" /> All products
+              <ArrowLeft className="h-3.5 w-3.5" /> All services
             </Link>
           </aside>
         </div>

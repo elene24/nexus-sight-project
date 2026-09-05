@@ -14,7 +14,7 @@ const cols = [
   {
     title: "Capabilities",
     links: [
-      { to: "/services", label: "Products" },
+      { to: "/services", label: "Services" },
       { to: "/activities", label: "Activities" },
       { to: "/insights", label: "Insights" },
       { to: "/contact", label: "Contact" },

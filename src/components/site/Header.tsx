@@ -8,7 +8,7 @@ const NAV = [
   { to: "/team", label: "Team" },
   { to: "/activities", label: "Activities" },
   { to: "/insights", label: "Insights" },
-  { to: "/services", label: "Products" },
+  { to: "/services", label: "Services" },
   // Partners stays routable but is temporarily hidden from the menu.
   { to: "/partners", label: "Partners", hidden: true },
   { to: "/careers", label: "Careers" },

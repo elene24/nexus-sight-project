@@ -147,7 +147,7 @@ export function Hero() {
             to="/services"
             className="focus-ring group inline-flex items-center gap-2 rounded-sm border border-border-strong bg-paper px-5 py-3 text-sm font-medium text-navy transition-all hover:bg-foreground"
           >
-            Explore Products
+            Explore Services
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link

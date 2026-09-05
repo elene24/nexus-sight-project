@@ -37,14 +37,17 @@ function ActivitiesPage() {
                   transition={{ duration: 0.6, delay: i * 0.06 }}
                   className="group overflow-hidden rounded-sm border border-border-strong bg-background"
                 >
-                  <div className="relative aspect-[16/9] overflow-hidden border-b border-border">
-                    <img src={a.cover} alt="" loading="lazy" className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" />
-                  </div>
-                  <div className="p-6">
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-mute">{a.category} · {a.date}</p>
-                    <h2 className="mt-3 font-display text-xl font-medium leading-snug text-foreground">{a.title}</h2>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a.preview}</p>
-                  </div>
+                  <Link to="/activities/$slug" params={{ slug: a.slug }} className="block">
+                    <div className="relative aspect-[16/9] overflow-hidden border-b border-border">
+                      <img src={a.cover} alt="" loading="lazy" className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" />
+                    </div>
+                    <div className="p-6">
+                      <p className="font-mono text-[11px] uppercase tracking-widest text-mute">{a.category} · {a.date}</p>
+                      <h2 className="mt-3 font-display text-xl font-medium leading-snug text-foreground">{a.title}</h2>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a.preview}</p>
+                    </div>
+                  </Link>
+
                 </motion.article>
               ))}
             </div>

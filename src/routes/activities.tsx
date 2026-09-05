@@ -54,16 +54,15 @@ function ActivitiesPage() {
 
       <section className="py-24 md:py-28">
         <div className="container-x">
-          <div className="grid auto-rows-[minmax(0,1fr)] gap-6 md:grid-cols-3">
+          <div className="grid items-start gap-6 md:grid-cols-3">
             {rest.map((a, i) => (
-
               <motion.article
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: (i % 4) * 0.05 }}
-                className={`group flex flex-col overflow-hidden rounded-sm border border-border bg-surface/40 transition-colors hover:bg-surface/70 ${spans[i % 4]}`}
+                className="group flex flex-col overflow-hidden rounded-sm border border-border bg-surface/40 transition-colors hover:bg-surface/70"
               >
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-border">
                   <img src={a.cover} alt="" loading="lazy" className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" />
